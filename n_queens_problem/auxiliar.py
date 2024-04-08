@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import matplotlib.patches as patches
-
 import numpy as np
 from queens import *
 
@@ -15,8 +14,6 @@ def add_queen_icon(ax, position):
 
 def display_chessboard(matrix):
     fig, ax = plt.subplots()
-
-    # Create patches for dark and white squares
     for i in range(8):
         for j in range(8):
             color = 'white' if (i + j) % 2 == 0 else 'black'
@@ -31,7 +28,6 @@ def display_chessboard(matrix):
     for i in range(TABLE_HEIGHT):
         for j in range(TABLE_WIDTH):
             if matrix[i][j] == 1:
-                # Centering queen icons in squares
                 add_queen_icon(ax, (j+0.5, i+0.5))
 
     ax.set_xlim(0, 8)
