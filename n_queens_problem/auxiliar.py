@@ -7,7 +7,7 @@ from queens import *
 
 
 def add_queen_icon(ax, position):
-    queen_icon = plt.imread('./ico/3405_white-queen.png')
+    queen_icon = plt.imread('./n_queens_problem/ico/3405_white-queen.png')
     imagebox = OffsetImage(queen_icon, zoom=0.12)
     ab = AnnotationBbox(imagebox, position, frameon=False)
     ax.add_artist(ab)

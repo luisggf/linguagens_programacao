@@ -18,7 +18,7 @@ class Queens:
             random.shuffle(combinations)
             placed_queens = 0
             self.table = generate_table()
-            for comb in combinations[:]:
+            for comb in combinations:
                 width_pos = comb[0]
                 height_pos = comb[1]
                 combinations.remove((width_pos, height_pos))
