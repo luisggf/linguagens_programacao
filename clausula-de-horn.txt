@@ -1,0 +1,58 @@
+
+
+============== Clausula de Horn ================ 09/07/2024 Linguagens de Programação - Terça Feira 15:42
+
+A clausula de Horn é uma variante particular de lógica predicativa que está por trás da lógica prolog
+
+Uma clausula de Horn tem uma parte mais importante 'h', que é um atributo, e um corpo, que é uma lista de atributos (P1,P2,P3..., PN-1, PN)
+
+Clausulas de Horn são escritas no seguinte estilo:
+
+h <- (p1, p2, ... pn)
+
+* Isso significa que h é verdadeiro (true) somente se (p1, p2 ... pn) forem simultaneamente verdadeiro
+
+> Frases e ideias podem ser escritas como uma claúsula de Horn
+> Exemplo: "Está nevando em alguma cidade C somente se houver precipitação na cidade C e a temperatura na cidade C estive no ponto de congelamento"
+
+	nevando(c) <-- precipitação(c), congelamento(c)
+	
+	nevando(c) <- precipitacao(c) }
+	nevando(c) <- congelamento(c) }
+	
+Resolução..
+Definição: Quando aplicada às clausulas de Horn, a resolução diz que se H é a cabeça de uma cláusula de Horn e ela corresponde a um dos termos de outra clausula de Horn, então aquele termo pode ser substituido por:
+
+ex: h <- terms
+	t <- t1, h, t2
+	
+então podemois resolver a segunda Clausula para t <- t1, terms, t2.
+
+Por exemplo: fala(mary, inglês)
+
+	* fala_com(x,y) <- fala(x,L), fala(y,L), x ! y
+	
+a Resolução permite deduzir o seguinte
+
+	* fala_com(mary, y) <- fala(mary, ingles), fala(y, ingles), mary ! y
+	
+	
+PROLOG: Exercicio
+
+paisefilho(fernanda,luis,mario).
+paisefilho(fernanda,luis,alan).
+
+paisefilho(claudio,ana,hercules).
+paisefilho(fernanda,claudio,alice).
+paisefilho(claudio,luis,alice).
+% e irmao se nome dos dois pais e equivalente entre os 2 filhos
+e_irmao(F1,F2):-paisefilho(P1,P2,F1),paisefilho(P1,P2,F2),F1\=F2,P1\=P2.
+
+
+
+Exemplo inicial:
+fala(mary,ingles).
+fala(bob,ingles).
+fala(alex,russo).
+fala(mary,russo).
+fala_com(P1,P2):-fala(P1,L),fala(P2,L),P1\=P2.

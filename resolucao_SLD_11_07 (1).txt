@@ -1,0 +1,61 @@
+11/07/2024 Quinta Feira 15:48 | Linguagens de Programação
+
+============== RESOLUÇÃO SLD =================== 
+
+Resolução SLD (metodo que prolog usa para fazer inferencias)
+
+Resolução SLD é o nome de uma regra de inferência
+
+* A regra é sempre aplicada a um átomo objetivo e ma clausula cuja cabeça unificase com o átomo objetivo
+
+* Uma derivação SLD é uma sequência de aplicações de regra de uma resolução SLD
+
+* Uma refutação SLD é uma derivação SLD finita que termina com uma cláusula vazia.
+
+EXEMPLO:
+
+1 p(a,b)
+2 p(a,c)
+3 p(b,d)
+4 p(c,e)
+5 g(X,Y):-p(X,Z),p(Z,Y)
+
+fazendo g ser o objetivo:
+?.g(a,W)
+
+LEGENDA: "?-" = Consulta a ser realizada
+	 "X/a" = Substituindo 'X' por 'a'
+
+* existe uma refutação SLD para PU(G). Para começar podemos resolver o objetivo com a quinta cláusula usando o unificador mais geral o1 = {X/a, Y/W}, o resultado é:
+
+
+?-  ̶p(a,Z),p(z,W)
+
+* Podemos resolver o átomo mais a esquerda desse objetivo com a primeira cláusula usando o unificador mais geral o2= {Z/b}, o resultado é:
+
+?-p̶(̶a̶,̶Z̶)̶ ,p(b,W)
+
+* Podemos resolver este objetivo com a terceira clusula usando o unificador mais geral o3 = {W/d}, o resultado é a cláusula vazia. Assim temos uma refutação SLD de PU{G}:
+
+?-p(b,d)
+?-{vazio}
+
+g(a,W) = o1,o2,o3 = g(a,d) OU SEJA ao aplicar os passos o1,o2,o3 o resultado g(a,d) foi encontrado. Dessa forma é possível fazer um diagrama com as unificações em forma de árvore para mostrar o resultado mais visualmente (ENCONTRAR NA FOTO 11/07 15h)
+
+Exemplo 2:
+
+1-avo(X,Z):-pai(X,Y),progenitor(Y,Z)
+2-progenitor(X,Y):-pai(X,Y)
+3-progenitor(X,Y):-mae(X,Y)
+4-pai(a,b)
+5-mae(b,c)
+
+
+PROLOG EXEMPLO
+
+idade(ana,2).
+idade(claudio,18).
+idade(lucas,21).
+idade(jorge,34).
+maior_que(Nome,Idade):-idade(Nome,IdadePessoa),IdadePessoa>Idade.
+	
