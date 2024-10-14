@@ -1,8 +1,5 @@
 import streamlit as st
-from newspaper import Article
 from util import *
-import requests
-from bs4 import BeautifulSoup
 import inspect
 
 
@@ -17,7 +14,7 @@ soup = BeautifulSoup(html_content, 'html.parser')
 st.title("Informações do Filme")
 
 st.markdown("""
-# Como foi feito este exercício
+# Como foi feito o exercício da Lista III
 
 Essa aplicação consiste em uma interface via Streamlit que exibe informações sobre o filme Titanic. Abaixo estão os passos realizados para desenvolver essa aplicação:
 
@@ -28,19 +25,19 @@ Essa aplicação consiste em uma interface via Streamlit que exibe informações
     - BeautifulSoup: Biblioteca para parsing de HTML e extração de dados.
 
 2. **Coleta de Dados**:
-    - Utilizamos a URL da página da Wikipédia do filme Titanic.
+    - Foi utilizado a URL da página da Wikipédia do filme Titanic.
     - Usamos a biblioteca Newspaper3k para fazer o download e parsing do conteúdo do artigo.
     - Realizamos uma requisição GET para obter o HTML completo da página.
 
 3. **Parsing do HTML**:
-    - Utilizamos BeautifulSoup para fazer o parsing do HTML e extrair as informações necessárias.
+    - Foi utilizado BeautifulSoup para fazer o parsing do HTML e extrair as informações necessárias.
 
 4. **Criação da Interface com Streamlit**:
     - Criamos botões para exibir diferentes informações sobre o filme.
-    - Utilizamos a função `inspect.getsource` para exibir o código fonte das funções que extraem os dados.
+    - Foi utilizado a função `inspect.getsource` para exibir o código fonte das funções que extraem os dados.
 
 5. **Funções Utilizadas**:
-    - `get_mov_title(source_code)`: Obtém o título do filme.
+    - `get_mov_title(source_cod e)`: Obtém o título do filme.
     - `get_genres(soup)`: Obtém os gêneros do filme.
     - `get_cast(soup)`: Obtém o elenco do filme.
     - `get_release_date(soup)`: Obtém a data de lançamento do filme.
@@ -48,7 +45,7 @@ Essa aplicação consiste em uma interface via Streamlit que exibe informações
     - `get_music(soup)`: Obtém o compositor principal do filme.
 
 6. **Exibição do Código Fonte**:
-    - Utilizamos a biblioteca `inspect` para exibir o código fonte das funções responsáveis por extrair os dados.
+    - Foi utilizado a biblioteca `inspect` para exibir o código fonte das funções responsáveis por extrair os dados.
 
 Esperamos que este exercício seja útil para entender como criar uma aplicação web interativa usando Streamlit e como extrair e processar dados da web.
 

@@ -1,0 +1,3 @@
+https://github.com/luisggf/linguagens_programacao
+
+A atividade 2 pode ser encontrada em "./ativ2_scrapping/" do repositorio acima

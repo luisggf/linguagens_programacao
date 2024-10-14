@@ -1,0 +1,35 @@
+
+Sistema de Recuperação de Informação em Prolog
+==============================================
+
+Este projeto implementa um sistema básico de recuperação de informação utilizando a linguagem Prolog.
+
+Instruções para Execução
+------------------------
+
+1. Salve o código em um arquivo com extensão `.pl`. Exemplo: `sistema_recuperacao_informacao.pl`
+
+2. Carregue o arquivo no ambiente Prolog utilizando o seguinte comando:
+
+   ?- [sistema_recuperacao_informacao].
+
+3. Para iniciar a interface de usuário, execute o predicado `interface_usuario.`:
+
+   ?- interface_usuario.
+
+   Isso abrirá uma interface de linha de comando que permite ao usuário fazer consultas na base de dados.
+
+4. Para executar os casos de teste e validar o funcionamento do sistema, execute o predicado `testes.`:
+
+   ?- testes.
+
+   Este predicado executará uma série de consultas predefinidas para demonstrar o comportamento do sistema.
+
+Observações
+-----------
+
+- O sistema permite consultas por título, autor, palavras-chave, e combinações desses metadados.
+- É possível realizar consultas usando operadores lógicos como AND, OR e NOT.
+- O sistema inclui um mecanismo simples de ranqueamento baseado na data de publicação.
+
+Para sair da interface de usuário, selecione a opção "5. Sair" no menu.
